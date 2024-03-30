@@ -25,6 +25,7 @@ const Signup = () => {
         const response = await createNewAccount(userData)
         if (response.userData) { 
             dispatch(updateUser(response.userData))
+            localStorage.setItem("token", response.userData.token)
             setTimeout(() => {
                 if (response.userData.type == "Employer") {
                     navigate("/")

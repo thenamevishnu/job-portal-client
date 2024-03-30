@@ -24,6 +24,7 @@ const Login = () => {
         const response = await userLogin(userData)
         if (response.userData) {
             dispatch(updateUser(response.userData))
+            localStorage.setItem("token", response.userData.token)
             setTimeout(() => {
                 if (response.userData.type == "Employer") {
                     navigate("/")

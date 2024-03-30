@@ -54,6 +54,22 @@ export const applyJob = async (user_id, job_id, userForm) => {
     }
 }
 
+export const getAppliedList = async (user_id) => {
+    try {
+        const { data } = await api.get(`/job/applied-list`, {
+            params: {
+                user_id: user_id
+            }
+         })
+        if (data.result) {
+            return data
+        }
+        return { message: data.message }
+    } catch (err) {
+        return { message: err?.response?.data?.message || err.message }
+    }
+}
+
 export const uploadResume = async (resume) => {
     try {
         const formData = new FormData();
