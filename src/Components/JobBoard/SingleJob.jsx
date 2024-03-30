@@ -63,6 +63,7 @@ const SingleJob = () => {
                             </div>
                         </div>
                     </div>
+                    <button className={`flex ${checkAlreadyApplied() ? `bg-gray-600` : `bg-green-600`} p-2 w-full mt-3 rounded-lg justify-center font-semibold text-white items-center`} onClick={() => !checkAlreadyApplied() && onApplyJob()}><i className="fa fa-paper-plane mt-1 mr-2" /> {checkAlreadyApplied() ? "Applied" : "Apply Now"}</button>
                 </div>
 
                 <div className="md:block hidden md:col-span-4 justify-between col-span-12 lg:col-span-3">
@@ -75,9 +76,6 @@ const SingleJob = () => {
                             <div className="text-center mt-3">
                                 <p>{job?.posted?.[0]?.name}</p>
                             </div>
-                        </div>
-                        <div className="flex justify-center sm:flex-row md:flex-col flex-col w-full gap-2 mt-2">
-                            <button className={`bg-opacity-90 w-full text-white p-1 rounded-xl px-2`} > Send Proposal</button>
                         </div>
                     </div>
                     <button className={`flex ${checkAlreadyApplied() ? `bg-gray-600` : `bg-green-600`} p-2 w-full mt-3 rounded-lg justify-center font-semibold text-white items-center`} onClick={() => !checkAlreadyApplied() && onApplyJob()}><i className="fa fa-paper-plane mt-1 mr-2" /> {checkAlreadyApplied() ? "Applied" : "Apply Now"}</button>
