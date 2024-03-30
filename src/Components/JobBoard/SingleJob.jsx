@@ -63,7 +63,7 @@ const SingleJob = () => {
                             </div>
                         </div>
                     </div>
-                    <button className={`flex ${checkAlreadyApplied() ? `bg-gray-600` : `bg-green-600`} p-2 w-full mt-3 rounded-lg justify-center font-semibold text-white items-center`} onClick={() => !checkAlreadyApplied() && onApplyJob()}><i className="fa fa-paper-plane mt-1 mr-2" /> {checkAlreadyApplied() ? "Applied" : "Apply Now"}</button>
+                    <button className={`flex ${checkAlreadyApplied() ? `bg-gray-600` : `bg-green-600`} md:hidden p-2 w-full mt-3 rounded-lg justify-center font-semibold text-white items-center`} onClick={() => !checkAlreadyApplied() && onApplyJob()}><i className="fa fa-paper-plane mt-1 mr-2" /> {checkAlreadyApplied() ? "Applied" : "Apply Now"}</button>
                 </div>
 
                 <div className="md:block hidden md:col-span-4 justify-between col-span-12 lg:col-span-3">
