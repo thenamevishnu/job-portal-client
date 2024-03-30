@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import SignupPage from "../Pages/SignupPage"
 import ProtectedRoute from "../ProtectedRoute"
 import LoginPage from "../Pages/LoginPage"
@@ -28,11 +28,17 @@ const Router = () => {
                         </Fragment>
                     }
 
-                    <Route path="signup" element={<ProtectedRoute signup><SignupPage /></ProtectedRoute>} />
-                    <Route path="login" element={<LoginPage />} />
+                    {
+                        !type && <Fragment>
+                            <Route exact path="" element={(<Navigate to={"/login"} />)} />
+                            <Route path="signup" element={<ProtectedRoute signup><SignupPage /></ProtectedRoute>} />
+                            <Route path="login" element={<LoginPage />} />
+                        </Fragment>
+                    }
 
                     {
                         type === "Job Post" && <Fragment>
+                            <Route exact path="" element={(<Navigate to={"/post/job"} />)} />
                             <Route path="post">
                                 <Route path="job" element={<ProtectedRoute>
                                     <PostJob />
@@ -40,9 +46,8 @@ const Router = () => {
                             </Route>
                         </Fragment>
                     }
-
+                    <Route path="*" element={(<div>Page Not Found!</div>)} />
                 </Route>
-                <Route path="*" element={(<div>Page Not Found!</div>)} />
             </Routes>
         </BrowserRouter>
     )
