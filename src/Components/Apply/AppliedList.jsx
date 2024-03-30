@@ -37,7 +37,7 @@ const AppliendList = () => {
                                 appliedList.map(items => {
                                     return (
                                         <div key={items._id} className="w-full shadow shadow-gray-500 mb-2 rounded-xl p-2">
-                                            <JobPreview list status={ items?.status } items={items?.job_info[0]} />
+                                            <JobPreview list status={ items?.status } items={items?.job_info?.[0]} />
                                         </div>
                                     )
                                 })
